@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,300;0,6..72,400&display=swap" rel="stylesheet" />
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #eef2ea; color: #eef3ee; font-family: Manrope, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+a { color: #0a6e42; text-decoration: none; }
+a:hover { color: #00843D; }
+[data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+[data-reveal="left"] { transform: translateX(-38px); }
+[data-reveal="right"] { transform: translateX(38px); }
+[data-reveal="scale"] { transform: scale(.92); }
+[data-reveal].in { opacity: 1; transform: none; }
+.lift { transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s cubic-bezier(.2,.7,.2,1); }
+.lift:hover { transform: translateY(-7px); }
+@keyframes floaty { 0%,100% { transform: translate3d(0,0,0) } 50% { transform: translate3d(0,-20px,0) } }
+@keyframes kenburns { 0% { transform: scale(1.2) } 100% { transform: scale(1.3) } }
+@keyframes shimmer { 0% { background-position: 0% 50% } 100% { background-position: 200% 50% } }
+::selection { background: #00843D; color: #fff; }
+input, textarea, button { font-family: inherit; }
+input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
+/* Mobile-style hero applied at ALL widths */
+#hero-media, #hero-ov, #hero-ov2 { display: none !important; }
+#top { background: radial-gradient(120% 90% at 80% -8%, rgba(31,146,86,.75) 0%, rgba(12,92,56,.78) 46%, rgba(6,61,38,.83) 100%), url('uploads/schoolbg2.png') center 70%/cover no-repeat !important; }
+#hero-accent { color: #fff !important; }
+#about-photo { display: none !important; }
+#hero-wave-d { display: none !important; }
+#hero-wave-m { display: block !important; pointer-events: none; }
+#hero-badge { display: none !important; }
+#hero-copy > div { text-align: center; margin-left: auto; margin-right: auto; }
+#hero-copy p { margin-left: auto; margin-right: auto; }
+#hero-cta { justify-content: center; }
+#gallery { display: block !important; position: relative; z-index: 6; grid-column: 1 / -1 !important; }
+
+@media (min-width: 760px) {
+  #top { min-height: 0 !important; align-items: center !important; flex-direction: column !important; }
+  #hero-copy { display: flex !important; flex-direction: column !important; align-items: center !important; padding-top: clamp(48px, 5vw, 80px) !important; padding-bottom: clamp(44px, 4.5vw, 72px) !important; padding-left: clamp(110px, 16vw, 225px) !important; padding-right: clamp(110px, 16vw, 225px) !important; }
+  #hero-copy > div { max-width: 1280px !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
+  #hero-heading { font-size: clamp(52px, 4.6vw, 68px) !important; }
+  #hero-copy p { max-width: 765px !important; text-align: center !important; }
+  #hero-wave-m { height: clamp(240px, 24vw, 360px) !important; }
+  #gallery { display: none !important; }
+  #gallery-3 { display: flex !important; }
+  #about-grid { grid-template-columns: 1.05fr 0.95fr !important; }
+  #about-text { grid-column: 2 !important; }
+  #about-lego { display: block !important; }
+}
+@media (max-width: 759px) {
+  #site-header { padding-left: 16px !important; padding-right: 16px !important; }
+  #top { align-items: flex-start !important; min-height: 0 !important; }
+  #hero-badge { display: none !important; }
+  #hero-copy { padding-bottom: clamp(260px, 50vw, 360px) !important; padding-top: clamp(12px, 3vw, 24px) !important; padding-left: 22px !important; padding-right: 22px !important; }
+  #hero-cta { display: none !important; }
+  #hero-wave-m { height: clamp(170px, 44vw, 300px) !important; }
+  #gallery { margin-top: calc(30px - clamp(260px, 50vw, 360px)) !important; margin-bottom: 56px !important; }
+  #about-grid { padding-top: clamp(24px, 4vw, 56px) !important; }
+  #contact-btn { display: none !important; }
+  #hamburger-btn { display: flex !important; }
+}
+#about-lego { display: none; }
+</style>
+</helmet>
+
+<div style="position:relative;overflow:clip">
+
+  <header id="site-header" style="position:sticky;top:0;z-index:50;padding:10px 84px;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);background:radial-gradient(130% 300% at 50% -70%, #124a2d 0%, #08281a 55%, #061a10 100%);border-bottom:1px solid rgba(255,255,255,.08)">
+    <div style="max-width:100%;margin:0;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="#top" style="display:flex;align-items:center;gap:10px;color:#fff">
+        <span style="width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:17px;letter-spacing:-.02em;color:#fff;background:linear-gradient(150deg,#00a94e,#00843D 55%,#05563a);box-shadow:0 6px 18px rgba(0,132,61,.45), inset 0 1px 0 rgba(255,255,255,.35)">Y</span>
+        <span style="font-weight:800;font-size:15px;letter-spacing:-.01em;color:#fff">Spry for Yorktown</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:4px">
+        <a href="#about" style="display:none;padding:9px 13px;border-radius:999px;font-size:14px;font-weight:600;color:#d4e6da" style-hover="background:rgba(255,255,255,.12);color:#fff">About</a>
+        <a href="#why" style="display:none;padding:9px 13px;border-radius:999px;font-size:14px;font-weight:600;color:#d4e6da" style-hover="background:rgba(255,255,255,.12);color:#fff">Why I'm Running</a>
+        <a href="#work" style="display:none;padding:9px 13px;border-radius:999px;font-size:14px;font-weight:600;color:#d4e6da" style-hover="background:rgba(255,255,255,.12);color:#fff">Priorities</a>
+        <a id="contact-btn" href="#contact" style="padding:10px 18px;border-radius:999px;font-size:14px;font-weight:700;white-space:nowrap;color:#ffffff;background:linear-gradient(160deg,#16a85e,#0a5c38);box-shadow:0 8px 22px rgba(0,132,61,.35), inset 0 1px 0 rgba(255,255,255,.6)" style-hover="filter:brightness(1.08)">Get in touch</a>
+        <button id="hamburger-btn" aria-label="Menu" onClick="{{ toggleMenu }}" style="display:none;width:40px;height:40px;border-radius:11px;align-items:center;justify-content:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);cursor:pointer;flex:none">
+          <div style="position:relative;width:20px;height:16px">
+            <span style="position:absolute;left:0;top:{{ barTopTop }};width:20px;height:2px;background:#fff;border-radius:2px;transform:{{ barTopTransform }};transition:all .25s ease"></span>
+            <span style="position:absolute;left:0;top:7px;width:20px;height:2px;background:#fff;border-radius:2px;opacity:{{ barMidOpacity }};transition:all .25s ease"></span>
+            <span style="position:absolute;left:0;top:{{ barBotTop }};width:20px;height:2px;background:#fff;border-radius:2px;transform:{{ barBotTransform }};transition:all .25s ease"></span>
+          </div>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div id="mobile-menu" style="position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:min(28px,4.5vh);padding:16px;box-sizing:border-box;background:radial-gradient(120% 90% at 80% -8%, rgba(31,146,86,.92) 0%, rgba(12,92,56,.94) 46%, rgba(6,61,38,.96) 100%);opacity:{{ menuOverlayOpacity }};pointer-events:{{ menuPointerEvents }};clip-path:{{ menuClip }};transition:opacity .4s ease, clip-path .55s cubic-bezier(.65,0,.35,1)">
+    <a href="#about" onClick="{{ closeMenu }}" style="font-size:min(28px,5.5vh);font-weight:700;color:#fff;letter-spacing:-.01em">About</a>
+    <a href="#why" onClick="{{ closeMenu }}" style="font-size:min(28px,5.5vh);font-weight:700;color:#fff;letter-spacing:-.01em">Why I'm Running</a>
+    <a href="#work" onClick="{{ closeMenu }}" style="font-size:min(28px,5.5vh);font-weight:700;color:#fff;letter-spacing:-.01em">Priorities</a>
+    <a href="#contact" onClick="{{ closeMenu }}" style="margin-top:min(10px,1.5vh);padding:min(14px,2.2vh) 30px;border-radius:999px;font-size:min(18px,3.6vh);font-weight:700;color:#fff;background:linear-gradient(160deg,#16a85e,#0a5c38);box-shadow:0 14px 34px rgba(0,132,61,.45)">Get in touch</a>
+  </div>
+
+  <section id="top" style="position:relative;min-height:clamp(600px,94vh,940px);display:flex;align-items:center;overflow:hidden;background:#06180f">
+    <div id="hero-media" style="position:absolute;inset:0;overflow:hidden">
+      <img data-hero-slide="" src="uploads/ChatGPT Image Aug 20, 2026, 09_25_49 PM.png" alt="Thomas Spry with his daughter and her Yorktown Elementary honor roll plaque on the White River bridge" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:88% 16%;opacity:1;transition:opacity 1.4s ease;animation:kenburns 24s ease-in-out infinite alternate" />
+      <img data-hero-slide="" src="uploads/ChatGPT Image Aug 20, 2026, 11_37_41 PM.png" alt="The Spry family with their two golden retrievers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;opacity:0;transition:opacity 1.4s ease;animation:kenburns 24s ease-in-out infinite alternate" />
+      <img data-hero-slide="" src="uploads/ChatGPT Image Aug 20, 2026, 11_30_09 PM-20a89dfd.png" alt="Thomas and his wife at Glacier National Park" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 34%;opacity:0;transition:opacity 1.4s ease;animation:kenburns 24s ease-in-out infinite alternate" />
+    </div>
+    <div id="hero-ov" style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(4,20,12,.95) 0%, rgba(4,20,12,.85) 30%, rgba(5,32,20,.5) 50%, rgba(5,32,20,.08) 66%, rgba(5,32,20,0) 78%)"></div>
+    <div id="hero-ov2" style="position:absolute;inset:0;background:linear-gradient(to top, rgba(4,20,12,.82) 0%, rgba(4,20,12,.18) 32%, rgba(4,20,12,0) 58%)"></div>
+    <div style="position:absolute;top:-160px;left:-140px;width:560px;height:560px;border-radius:999px;background:radial-gradient(circle at 40% 40%, rgba(0,169,78,.4), rgba(0,169,78,0) 68%);filter:blur(14px);animation:floaty 15s ease-in-out infinite;pointer-events:none"></div>
+
+    <div id="hero-copy" style="position:relative;z-index:2;width:100%;max-width:100%;margin:0;padding:0 84px clamp(60px,10vw,110px);container-type:inline-size">
+      <div style="max-width:460px">
+        <div id="hero-badge" data-reveal="" style="display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 11px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:#d4f2e0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
+          <span style="width:7px;height:7px;border-radius:999px;background:#37bf76;box-shadow:0 0 0 4px rgba(74,222,128,.22)"></span>
+          Candidate — Yorktown Community Schools Board of Trustees
+        </div>
+
+        <h1 id="hero-heading" data-reveal="" style="margin:20px 0 0;font-size:clamp(38px,7cqw,62px);line-height:.98;letter-spacing:-.03em;font-weight:800;color:#fff;text-wrap:balance">
+          Thomas Spry for Yorktown School Board
+        </h1>
+
+        <p data-reveal="" style="margin:24px 0 0;max-width:440px;font-size:clamp(17px,2.2vw,21px);line-height:1.55;color:#dbe9e0;text-wrap:pretty">
+          Twenty years solving problems where every priority competes for time, money, and people. And a Yorktown dad whose kids are in these buildings every day.
+        </p>
+
+        <div id="hero-cta" data-reveal="" style="margin:34px 0 0;display:flex;flex-wrap:wrap;gap:12px">
+          <a href="#why" style="padding:15px 27px;border-radius:999px;white-space:nowrap;font-size:15.5px;font-weight:700;color:#ffffff;background:linear-gradient(160deg,#16a85e,#0a5c38);box-shadow:0 14px 34px rgba(0,132,61,.45), inset 0 1px 0 rgba(255,255,255,.6)" style-hover="filter:brightness(1.08)">Why I'm running</a>
+          <a href="#work" style="padding:15px 27px;border-radius:999px;white-space:nowrap;font-size:15.5px;font-weight:700;color:#eaf6ee;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)" style-hover="background:rgba(255,255,255,.18)">See the priorities</a>
+        </div>
+      </div>
+    </div>
+    <div id="gallery-3" data-reveal="" style="display:none;position:relative;z-index:5;width:100%;justify-content:center;align-items:flex-end;gap:28px">
+      <div style="flex:none;width:clamp(170px,18.5vw,305px);height:clamp(221px,24vw,396px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
+        <img src="uploads/577054294_10239404194227265_4106296925650258213_n-521371be.jpg" alt="The Spry family with their golden retrievers" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 32%" />
+      </div>
+      <div style="flex:none;width:clamp(187px,21vw,350px);height:clamp(255px,28vw,465px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
+        <img src="uploads/1774959444475%20(1).png" alt="Thomas Spry" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%" />
+      </div>
+      <div style="flex:none;width:clamp(170px,18.5vw,305px);height:clamp(221px,24vw,396px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
+        <img src="uploads/655699414_10241650994315863_3805047959431114635_n%20(2)-c39d6749.jpg" alt="Thomas and his wife at Glacier National Park" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 32%" />
+      </div>
+    </div>
+    <svg id="hero-wave-d" viewBox="0 0 1440 140" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(70px,9vw,140px);z-index:3;display:block"><path d="M0,132 C280,116 520,74 780,56 C1030,39 1240,26 1440,20 L1440,140 L0,140 Z" fill="#f4f7f1"></path></svg>
+    <svg id="hero-wave-m" viewBox="0 0 1440 620" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(400px,44vw,660px);z-index:3;display:none;pointer-events:none"><path d="M0,82 C300,44 500,44 700,82 C1000,130 1250,190 1440,251 L1440,620 L0,620 Z" fill="#f4f7f1"></path></svg>
+  </section>
+
+  <section id="about" style="position:relative;z-index:3;background:linear-gradient(180deg,#f4f7f1 0%,#eaf0e6 100%);color:#132318">
+    <img id="about-lego" src="uploads/ChatGPT Image Aug 21, 2026, 04_18_10 PM-7bc6eef4.png" alt="LEGO model of Yorktown High School" style="position:absolute;left:-140px;top:50%;transform:translateY(-52%);width:clamp(560px,60vw,900px);z-index:1;pointer-events:none;user-select:none" />
+    <div id="about-grid" style="max-width:1200px;margin:0 auto;padding:clamp(48px,7vw,84px) 22px clamp(80px,10vw,132px);display:grid;gap:clamp(32px,5vw,64px);grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:center;column-gap:clamp(32px,5vw,64px)">
+      <div id="about-text">
+        <div data-reveal="" style="font-size:12.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#0a6e42">About Thomas</div>
+        <h2 data-reveal="" style="margin:16px 0 0;font-size:clamp(36px,6vw,62px);line-height:1.0;letter-spacing:-.03em;font-weight:800;color:#0f2117;text-wrap:balance">Putting complex pieces together is my strength.</h2>
+        <div data-reveal="" style="margin:24px 0 0;display:grid;gap:16px;max-width:520px;font-size:16.5px;line-height:1.62;color:#3d4d43">
+          <p style="margin:0;text-wrap:pretty">Thomas is a mechanical project engineer — technical depth, project management, and a business head. His work spans medical refrigeration, forming presses, material handling, and tool and die.</p>
+        </div>
+        <div data-reveal="" style="margin:30px 0 0;display:flex;flex-wrap:wrap;gap:14px">
+          <div class="lift" style="flex:1;min-width:150px;padding:22px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(255,255,255,.55));border:1px solid rgba(10,110,66,.16);box-shadow:0 20px 40px -26px rgba(15,40,25,.5), inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+            <div style="font-size:clamp(36px,7vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1;background:linear-gradient(120deg,#0f6e44,#00a94e);-webkit-background-clip:text;background-clip:text;color:transparent">20</div>
+            <div style="margin:8px 0 0;font-size:13.5px;line-height:1.4;color:#516257">years of engineering</div>
+          </div>
+          <div class="lift" style="flex:1;min-width:150px;padding:22px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(255,255,255,.55));border:1px solid rgba(10,110,66,.16);box-shadow:0 20px 40px -26px rgba(15,40,25,.5), inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+            <div style="font-size:clamp(36px,7vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1;background:linear-gradient(120deg,#0f6e44,#00a94e);-webkit-background-clip:text;background-clip:text;color:transparent">4</div>
+            <div style="margin:8px 0 0;font-size:13.5px;line-height:1.4;color:#516257">industries, one discipline</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="about-photo" data-reveal="left" style="position:relative;z-index:6;order:-1">
+        <div class="lift" style="position:relative;border-radius:28px;overflow:hidden;border:1px solid rgba(15,40,25,.1);box-shadow:0 40px 80px -34px rgba(15,40,25,.55)">
+          <img src="uploads/1774959444475%20(1).png" alt="Thomas Spry" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover" />
+        </div>
+        <div style="position:absolute;bottom:-18px;left:-14px;padding:16px 20px;border-radius:18px;background:linear-gradient(155deg,rgba(255,255,255,.92),rgba(255,255,255,.7));border:1px solid rgba(10,110,66,.18);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 20px 40px -20px rgba(15,40,25,.5)">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#0a6e42">Yorktown, Indiana</div>
+          <div style="margin:4px 0 0;font-size:14px;font-weight:600;color:#2a3a30">Engineer · Dad · Neighbor</div>
+        </div>
+      </div>
+      <div id="gallery" data-reveal="" style="order:-1;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden">
+        <div id="carousel" style="overflow:hidden;cursor:grab;touch-action:pan-y">
+          <div id="carousel-track" style="display:flex;gap:16px;width:max-content;will-change:transform">
+            <sc-for list="{{ slides }}" as="slide">
+              <div style="flex:none;width:clamp(200px,52vw,300px);height:clamp(258px,66vw,392px);border-radius:22px;overflow:hidden;background:#dbe4d8;box-shadow:0 26px 52px -32px rgba(15,40,25,.55);border:1px solid rgba(15,40,25,.08)">
+                <img data-src="{{ slide.src }}" alt="{{ slide.alt }}" draggable="false" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 32%;pointer-events:none;user-select:none" />
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" style="position:relative;z-index:5;overflow:hidden;color:#eaf6ee;background:radial-gradient(110% 130% at 18% -5%, #1f9256 0%, #0c5c38 46%, #063d26 100%)">
+    <svg viewBox="0 0 1440 140" preserveAspectRatio="none" style="position:absolute;left:0;right:0;top:-1px;width:100%;height:clamp(60px,8vw,120px);z-index:2;display:block"><path d="M0,0 L1440,0 L1440,120 C1240,114 1030,101 780,84 C520,66 280,24 0,8 Z" fill="#eaf0e6"></path></svg>
+    <svg viewBox="0 0 1440 140" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(60px,8vw,120px);z-index:2;display:block"><path d="M0,132 C280,116 520,74 780,56 C1030,39 1240,26 1440,20 L1440,140 L0,140 Z" fill="#e4ece0"></path></svg>
+    <div style="position:relative;z-index:3;max-width:1200px;margin:0 auto;padding:clamp(110px,15vw,190px) 22px clamp(110px,15vw,190px)">
+      <div style="position:absolute;top:60px;right:-120px;width:440px;height:440px;border-radius:999px;background:radial-gradient(circle,rgba(0,169,78,.32),rgba(0,169,78,0) 70%);filter:blur(16px);animation:floaty 18s ease-in-out infinite;pointer-events:none"></div>
+      <div data-reveal="" style="font-size:12.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#4dc487">Why I'm running</div>
+      <h2 data-reveal="" style="margin:18px 0 0;max-width:840px;font-size:clamp(32px,6vw,66px);line-height:.96;letter-spacing:-.035em;font-weight:800;color:#fff;text-wrap:balance">
+        My kids are in these schools. That's why this is personal.
+      </h2>
+
+      <div style="margin:44px 0 0;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        <div class="lift" data-reveal="" style="padding:28px;border-radius:24px;background:linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:inset 0 1px 0 rgba(255,255,255,.28)">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.14em;color:#4dc487">01</div>
+          <h3 style="margin:12px 0 0;font-size:23px;font-weight:800;letter-spacing:-.02em;color:#fff">Problems I know</h3>
+          <p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:#c1d6ca;text-wrap:pretty">Buildings, budgets, staffing, safety. Each pulls against the others. That trade-off is my working life.</p>
+        </div>
+        <div class="lift" data-reveal="" style="padding:28px;border-radius:24px;background:linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:inset 0 1px 0 rgba(255,255,255,.28)">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.14em;color:#4dc487">02</div>
+          <h3 style="margin:12px 0 0;font-size:23px;font-weight:800;letter-spacing:-.02em;color:#fff">Skin in the game</h3>
+          <p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:#c1d6ca;text-wrap:pretty">My kids are in these buildings. I'll live with whatever the board decides — same as every family here.</p>
+        </div>
+        <div class="lift" data-reveal="" style="padding:28px;border-radius:24px;background:linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:inset 0 1px 0 rgba(255,255,255,.28)">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.14em;color:#4dc487">03</div>
+          <h3 style="margin:12px 0 0;font-size:23px;font-weight:800;letter-spacing:-.02em;color:#fff">Already strong</h3>
+          <p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:#c1d6ca;text-wrap:pretty">Yorktown doesn't need rescuing. Staying excellent takes more discipline than getting there did.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" style="position:relative;z-index:4;background:linear-gradient(180deg,#e4ece0 0%,#eef3ea 100%);color:#132318">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,9vw,124px) clamp(32px,6vw,88px);display:grid;gap:clamp(36px,5vw,80px);grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start">
+      <div>
+        <div data-reveal="" style="font-size:12.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#0a6e42">Priorities</div>
+        <h2 data-reveal="" style="margin:16px 0 0;max-width:520px;font-size:clamp(32px,6vw,58px);line-height:1.0;letter-spacing:-.03em;font-weight:800;color:#0f2117;text-wrap:balance">What I'll focus on for Yorktown schools.</h2>
+        <p data-reveal="" style="margin:18px 0 0;max-width:440px;font-size:16.5px;line-height:1.6;color:#3d4d43;text-wrap:pretty">Four areas where I'll put the board's time, budget, and attention. Each one is something I'd expect to see progress on within a term, not just talk about.</p>
+      </div>
+
+      <div style="display:grid;gap:14px;grid-template-columns:1fr">
+        <div class="lift" data-reveal="scale" style="display:flex;gap:16px;align-items:flex-start;padding:26px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.92),rgba(255,255,255,.62));border:1px solid rgba(10,110,66,.15);box-shadow:0 24px 46px -30px rgba(15,40,25,.5), inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+          <div style="flex:none;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font-size:13px;font-weight:800;color:#ffffff;background:linear-gradient(150deg,#2fae6e,#0a5c38)">01</div>
+          <div>
+            <h3 style="margin:0;font-size:19px;font-weight:800;letter-spacing:-.015em;color:#0f2117">Fiscal responsibility</h3>
+            <p style="margin:8px 0 0;font-size:14.5px;line-height:1.55;color:#4c5c52;text-wrap:pretty">Every dollar spent should be traceable to a result for students, not just a line item.</p>
+          </div>
+        </div>
+        <div class="lift" data-reveal="scale" style="display:flex;gap:16px;align-items:flex-start;padding:26px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.92),rgba(255,255,255,.62));border:1px solid rgba(10,110,66,.15);box-shadow:0 24px 46px -30px rgba(15,40,25,.5), inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+          <div style="flex:none;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font-size:13px;font-weight:800;color:#ffffff;background:linear-gradient(150deg,#2fae6e,#0a5c38)">02</div>
+          <div>
+            <h3 style="margin:0;font-size:19px;font-weight:800;letter-spacing:-.015em;color:#0f2117">Facilities &amp; safety</h3>
+            <p style="margin:8px 0 0;font-size:14.5px;line-height:1.55;color:#4c5c52;text-wrap:pretty">Buildings and systems maintained ahead of failure, not after it.</p>
+          </div>
+        </div>
+        <div class="lift" data-reveal="scale" style="display:flex;gap:16px;align-items:flex-start;padding:26px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.92),rgba(255,255,255,.62));border:1px solid rgba(10,110,66,.15);box-shadow:0 24px 46px -30px rgba(15,40,25,.5), inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+          <div style="flex:none;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font-size:13px;font-weight:800;color:#ffffff;background:linear-gradient(150deg,#2fae6e,#0a5c38)">03</div>
+          <div>
+            <h3 style="margin:0;font-size:19px;font-weight:800;letter-spacing:-.015em;color:#0f2117">Teacher &amp; staff retention</h3>
+            <p style="margin:8px 0 0;font-size:14.5px;line-height:1.55;color:#4c5c52;text-wrap:pretty">Good teachers stay when they're supported and paid competitively.</p>
+          </div>
+        </div>
+        <div class="lift" data-reveal="scale" style="display:flex;gap:16px;align-items:flex-start;padding:26px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.92),rgba(255,255,255,.62));border:1px solid rgba(10,110,66,.15);box-shadow:0 24px 46px -30px rgba(15,40,25,.5), inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+          <div style="flex:none;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font-size:13px;font-weight:800;color:#ffffff;background:linear-gradient(150deg,#2fae6e,#0a5c38)">04</div>
+          <div>
+            <h3 style="margin:0;font-size:19px;font-weight:800;letter-spacing:-.015em;color:#0f2117">Academic outcomes</h3>
+            <p style="margin:8px 0 0;font-size:14.5px;line-height:1.55;color:#4c5c52;text-wrap:pretty">Clear, measurable goals for what students should know at each grade level.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="position:relative;z-index:6;overflow:hidden;color:#eaf6ee;background:radial-gradient(110% 130% at 82% -5%, #1f9256 0%, #0c5c38 46%, #063d26 100%)">
+    <svg viewBox="0 0 1440 140" preserveAspectRatio="none" style="position:absolute;left:0;right:0;top:-1px;width:100%;height:clamp(70px,9vw,140px);z-index:2;display:block"><path d="M0,0 L1440,0 L1440,132 C1160,116 920,74 660,56 C410,39 200,26 0,20 Z" fill="#eef3ea"></path></svg>
+    <div style="position:absolute;bottom:-140px;left:-120px;width:500px;height:500px;border-radius:999px;background:radial-gradient(circle,rgba(0,169,78,.28),rgba(0,169,78,0) 70%);filter:blur(16px);animation:floaty 20s ease-in-out infinite;pointer-events:none"></div>
+    <div style="position:relative;z-index:3;max-width:1200px;margin:0 auto;padding:clamp(120px,15vw,220px) 22px clamp(60px,8vw,110px)">
+      <div style="position:relative">
+        <div style="position:absolute;top:-120px;right:-100px;width:340px;height:340px;border-radius:999px;background:radial-gradient(circle,rgba(0,169,78,.5),rgba(0,169,78,0) 70%);pointer-events:none"></div>
+        <div data-reveal="" style="position:relative;font-size:12.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#4dc487">Get in touch</div>
+        <h2 data-reveal="" style="position:relative;margin:16px 0 0;max-width:660px;font-size:clamp(34px,7vw,64px);line-height:.98;letter-spacing:-.03em;font-weight:800;color:#fff;text-wrap:balance">I'd rather answer than assume.</h2>
+        <p data-reveal="" style="position:relative;margin:16px 0 0;max-width:480px;font-size:16.5px;line-height:1.6;color:#cfe3d6;text-wrap:pretty">Questions, concerns, or something in your child's building the board should know. Send it over.</p>
+
+        <div data-reveal="" style="position:relative;margin:32px 0 0;display:grid;gap:14px;max-width:640px">
+          <div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+            <label style="display:grid;gap:8px">
+              <span style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#a8c6b4">Name</span>
+              <input type="text" placeholder="Your name" style="padding:15px 17px;border-radius:15px;font-size:16px;color:#fff;background:rgba(3,26,16,.42);border:1px solid rgba(255,255,255,.16);outline:none" style-focus="border-color:#37bf76;background:rgba(3,26,16,.55)" />
+            </label>
+            <label style="display:grid;gap:8px">
+              <span style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#a8c6b4">Email</span>
+              <input type="email" placeholder="you@email.com" style="padding:15px 17px;border-radius:15px;font-size:16px;color:#fff;background:rgba(3,26,16,.42);border:1px solid rgba(255,255,255,.16);outline:none" style-focus="border-color:#37bf76;background:rgba(3,26,16,.55)" />
+            </label>
+          </div>
+          <label style="display:grid;gap:8px">
+            <span style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#a8c6b4">Message</span>
+            <textarea rows="5" placeholder="What's on your mind?" style="padding:15px 17px;border-radius:15px;font-size:16px;line-height:1.5;color:#fff;background:rgba(3,26,16,.42);border:1px solid rgba(255,255,255,.16);outline:none;resize:vertical"style-focus="border-color:#37bf76;background:rgba(3,26,16,.55)"></textarea>
+          </label>
+          <button type="button" style="margin-top:4px;padding:16px 28px;border:none;border-radius:999px;font-size:16px;font-weight:800;letter-spacing:-.01em;color:#ffffff;cursor:pointer;background:linear-gradient(160deg,#16a85e,#0a5c38);box-shadow:0 14px 30px -8px rgba(3,26,16,.5), inset 0 1px 0 rgba(255,255,255,.6)" style-hover="filter:brightness(1.08)">Send message</button>
+        </div>
+      </div>
+    </div>
+
+    <footer style="position:relative;max-width:1200px;margin:0 auto;padding:0 22px 48px">
+      <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;padding-top:34px;border-top:1px solid rgba(255,255,255,.12)">
+        <div style="display:flex;align-items:center;gap:11px">
+          <span style="width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:15px;color:#fff;background:linear-gradient(150deg,#00a94e,#05563a)">Y</span>
+          <span style="font-size:14px;font-weight:700;color:#dcece2">Thomas Spry for Yorktown School Board</span>
+        </div>
+        <div style="font-size:13px;color:#7d998a">Paid for by the committee to elect Thomas Spry. Yorktown, Indiana.</div>
+      </div>
+    </footer>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { menuOpen: false };
+  toggleMenu = () => this.setState((s) => {
+    const next = !s.menuOpen;
+    document.body.style.overflow = next ? 'hidden' : '';
+    return { menuOpen: next };
+  });
+  closeMenu = () => {
+    document.body.style.overflow = '';
+    this.setState({ menuOpen: false });
+  };
+  componentDidMount() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+
+    // stagger reveals per-section so groups cascade
+    document.querySelectorAll('section').forEach((sec) => {
+      const els = Array.from(sec.querySelectorAll('[data-reveal]'));
+      els.forEach((el, i) => { el.style.transitionDelay = (Math.min(i, 6) * 85) + 'ms'; io.observe(el); });
+    });
+    this._io = io;
+
+    const mq = window.matchMedia('(min-width: 760px)');
+    const apply = () => {
+      document.querySelectorAll('nav a[href^="#"]').forEach((a) => {
+        if (a.getAttribute('href') !== '#contact') a.style.display = mq.matches ? 'block' : 'none';
+      });
+    };
+    apply();
+    mq.addEventListener('change', apply);
+    this._mq = mq; this._apply = apply;
+
+    // --- hero image crossfade rotation (desktop) ---
+    const heroSlides = document.querySelectorAll('#hero-media [data-hero-slide]');
+    if (heroSlides.length > 1) {
+      let hi = 0;
+      this._heroTimer = setInterval(() => {
+        heroSlides[hi].style.opacity = '0';
+        hi = (hi + 1) % heroSlides.length;
+        heroSlides[hi].style.opacity = '1';
+      }, 5500);
+    }
+
+    // --- self-scrolling, flick-able photo carousel ---
+    const carousel = document.getElementById('carousel');
+    const track = document.getElementById('carousel-track');
+    if (carousel && track) {
+      track.querySelectorAll('img[data-src]').forEach((im) => { im.src = im.getAttribute('data-src'); });
+      let setWidth = 1, pos = 0, velocity = 0, dragging = false, startX = 0, startPos = 0, lastX = 0, lastT = 0;
+      const auto = 0.12;
+      const measure = () => { setWidth = track.scrollWidth / 4 || 1; };
+      const wrap = () => {
+        while (pos < -(2 * setWidth)) pos += setWidth;
+        while (pos > -setWidth) pos -= setWidth;
+      };
+      const center = () => {
+        const hero = track.children[7];
+        if (!hero) return;
+        pos = carousel.clientWidth / 2 - (hero.offsetLeft + hero.offsetWidth / 2);
+        wrap();
+      };
+      measure(); center();
+      const frame = () => {
+        if (!dragging) {
+          pos -= auto;
+          pos += velocity;
+          velocity *= 0.93;
+          if (Math.abs(velocity) < 0.03) velocity = 0;
+        }
+        wrap();
+        track.style.transform = 'translateX(' + pos + 'px)';
+        this._craf = requestAnimationFrame(frame);
+      };
+      this._craf = requestAnimationFrame(frame);
+      const down = (e) => {
+        dragging = true; velocity = 0; startX = lastX = e.clientX; startPos = pos;
+        lastT = performance.now(); carousel.style.cursor = 'grabbing';
+        if (carousel.setPointerCapture) { try { carousel.setPointerCapture(e.pointerId); } catch (err) {} }
+      };
+      const move = (e) => {
+        if (!dragging) return;
+        const now = performance.now(), dt = Math.max(1, now - lastT);
+        velocity = (e.clientX - lastX) * (16 / dt);
+        lastX = e.clientX; lastT = now;
+        pos = startPos + (e.clientX - startX);
+      };
+      const up = () => { if (!dragging) return; dragging = false; carousel.style.cursor = 'grab'; };
+      const onResize = () => { measure(); wrap(); };
+      carousel.addEventListener('pointerdown', down);
+      window.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up);
+      window.addEventListener('resize', onResize);
+      this._carouselCleanup = () => {
+        cancelAnimationFrame(this._craf);
+        window.removeEventListener('pointermove', move);
+        window.removeEventListener('pointerup', up);
+        window.removeEventListener('resize', onResize);
+      };
+    }
+  }
+  componentWillUnmount() {
+    document.body.style.overflow = '';
+    if (this._io) this._io.disconnect();
+    if (this._mq) this._mq.removeEventListener('change', this._apply);
+    if (this._heroTimer) clearInterval(this._heroTimer);
+    if (this._carouselCleanup) this._carouselCleanup();
+  }
+  renderVals() {
+    const u = [
+      { src: 'uploads/577054294_10239404194227265_4106296925650258213_n-521371be.jpg', alt: 'The Spry family with their golden retrievers' },
+      { src: 'uploads/554085723_10238658876834796_557758260778972372_n-c45c2b6e.jpg', alt: 'Thomas and his wife at Glacier National Park' },
+      { src: 'uploads/1774959444475%20(1).png', alt: 'Thomas Spry' },
+      { src: 'uploads/655699414_10241650994315863_3805047959431114635_n-6c8e6f75.jpg', alt: 'The Spry family at Halloween' },
+      { src: 'uploads/656848049_10241641350834782_3836481386717458107_n-559bdf56.jpg', alt: 'Thomas with his kids on race day' },
+    ];
+    const slides = [];
+    for (let i = 0; i < 4; i++) u.forEach((s) => slides.push(s));
+    return {
+      slides,
+      menuOpen: this.state.menuOpen,
+      toggleMenu: this.toggleMenu,
+      closeMenu: this.closeMenu,
+      menuClip: this.state.menuOpen ? 'circle(150% at calc(100% - 34px) 30px)' : 'circle(0% at calc(100% - 34px) 30px)',
+      menuOverlayOpacity: this.state.menuOpen ? 1 : 0,
+      menuPointerEvents: this.state.menuOpen ? 'auto' : 'none',
+      barTopTop: this.state.menuOpen ? '7px' : '0',
+      barTopTransform: this.state.menuOpen ? 'rotate(45deg)' : 'none',
+      barMidOpacity: this.state.menuOpen ? 0 : 1,
+      barBotTop: this.state.menuOpen ? '7px' : '14px',
+      barBotTransform: this.state.menuOpen ? 'rotate(-45deg)' : 'none',
+    };
+  }
+}
+</script>
+</body>
+</html>
