@@ -323,7 +323,7 @@ class Component extends DCLogic {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
-          const wait = e.target.id === 'about' ? 900 : 400;
+          const wait = e.target.id === 'about' ? 400 : 150;
           setTimeout(() => {
             e.target.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('in'));
           }, wait);
