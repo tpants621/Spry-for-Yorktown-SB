@@ -179,7 +179,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
           <div style="margin:4px 0 0;font-size:14px;font-weight:600;color:#2a3a30">Engineer · Dad · Neighbor</div>
         </div>
       </div>
-      <div id="gallery" data-reveal="" style="order:-1;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden">
+      <div id="gallery" style="order:-1;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden">
         <div id="carousel" style="overflow:hidden;cursor:grab;touch-action:pan-y">
           <div id="carousel-track" style="display:flex;gap:16px;width:max-content;will-change:transform">
             <sc-for list="{{ slides }}" as="slide">
@@ -335,9 +335,18 @@ class Component extends DCLogic {
     document.querySelectorAll('section').forEach((sec) => {
       const els = Array.from(sec.querySelectorAll('[data-reveal]'));
       const alreadyVisible = sec.id === 'top';
-      els.forEach((el, i) => {
+      const isSlow = (el) => el.classList.contains('lift') || el.id === 'about-lego' || el.closest('#gallery-3');
+      const fastEls = els.filter((el) => !isSlow(el));
+      const slowEls = els.filter(isSlow);
+      fastEls.forEach((el, i) => {
         el.style.transition = 'opacity .9s cubic-bezier(.22,.9,.32,1), transform .9s cubic-bezier(.22,.9,.32,1)';
-        el.style.transitionDelay = (Math.min(i, 8) * 180) + 'ms';
+        el.style.transitionDelay = (Math.min(i, 8) * 90) + 'ms';
+      });
+      slowEls.forEach((el, i) => {
+        el.style.transition = 'opacity .9s cubic-bezier(.22,.9,.32,1), transform .9s cubic-bezier(.22,.9,.32,1)';
+        el.style.transitionDelay = (320 + Math.min(i, 8) * 180) + 'ms';
+      });
+      els.forEach((el) => {
         if (el.closest('#gallery-3')) {
           requestAnimationFrame(() => el.classList.add('in')); // let gallery photos animate in on load, staggered
         } else if (alreadyVisible) {
