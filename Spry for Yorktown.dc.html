@@ -134,14 +134,14 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
         </div>
       </div>
     </div>
-    <div id="gallery-3" data-reveal="" style="display:none;position:relative;z-index:5;width:100%;justify-content:center;align-items:flex-end;gap:28px">
-      <div style="flex:none;width:clamp(170px,18.5vw,305px);height:clamp(221px,24vw,396px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
+    <div id="gallery-3" style="display:none;position:relative;z-index:5;width:100%;justify-content:center;align-items:flex-end;gap:28px">
+      <div data-reveal="" style="flex:none;width:clamp(170px,18.5vw,305px);height:clamp(221px,24vw,396px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
         <img src="uploads/577054294_10239404194227265_4106296925650258213_n-521371be.jpg" alt="The Spry family with their golden retrievers" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 32%" />
       </div>
-      <div style="flex:none;width:clamp(187px,21vw,350px);height:clamp(255px,28vw,465px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
+      <div data-reveal="" style="flex:none;width:clamp(187px,21vw,350px);height:clamp(255px,28vw,465px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
         <img src="uploads/1774959444475%20(1).png" alt="Thomas Spry" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%" />
       </div>
-      <div style="flex:none;width:clamp(170px,18.5vw,305px);height:clamp(221px,24vw,396px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
+      <div data-reveal="" style="flex:none;width:clamp(170px,18.5vw,305px);height:clamp(221px,24vw,396px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
         <img src="uploads/655699414_10241650994315863_3805047959431114635_n%20(2)-c39d6749.jpg" alt="Thomas and his wife at Glacier National Park" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 32%" />
       </div>
     </div>
@@ -158,12 +158,12 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
         <div data-reveal="" style="margin:24px 0 0;display:grid;gap:16px;max-width:520px;font-size:16.5px;line-height:1.62;color:#3d4d43">
           <p style="margin:0;text-wrap:pretty">Thomas is a mechanical project engineer — technical depth, project management, and a business head. His work spans medical refrigeration, forming presses, material handling, and tool and die.</p>
         </div>
-        <div data-reveal="" style="margin:30px 0 0;display:flex;flex-wrap:wrap;gap:14px">
-          <div class="lift" style="flex:1;min-width:150px;padding:22px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(255,255,255,.55));border:1px solid rgba(10,110,66,.16);box-shadow:0 20px 40px -26px rgba(15,40,25,.5), inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+        <div style="margin:30px 0 0;display:flex;flex-wrap:wrap;gap:14px">
+          <div class="lift" data-reveal="" style="flex:1;min-width:150px;padding:22px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(255,255,255,.55));border:1px solid rgba(10,110,66,.16);box-shadow:0 20px 40px -26px rgba(15,40,25,.5), inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
             <div style="font-size:clamp(36px,7vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1;background:linear-gradient(120deg,#0f6e44,#00a94e);-webkit-background-clip:text;background-clip:text;color:transparent">20</div>
             <div style="margin:8px 0 0;font-size:13.5px;line-height:1.4;color:#516257">years of engineering</div>
           </div>
-          <div class="lift" style="flex:1;min-width:150px;padding:22px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(255,255,255,.55));border:1px solid rgba(10,110,66,.16);box-shadow:0 20px 40px -26px rgba(15,40,25,.5), inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+          <div class="lift" data-reveal="" style="flex:1;min-width:150px;padding:22px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(255,255,255,.55));border:1px solid rgba(10,110,66,.16);box-shadow:0 20px 40px -26px rgba(15,40,25,.5), inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
             <div style="font-size:clamp(36px,7vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1;background:linear-gradient(120deg,#0f6e44,#00a94e);-webkit-background-clip:text;background-clip:text;color:transparent">4</div>
             <div style="margin:8px 0 0;font-size:13.5px;line-height:1.4;color:#516257">industries, one discipline</div>
           </div>
@@ -319,14 +319,32 @@ class Component extends DCLogic {
     this.setState({ menuOpen: false });
   };
   componentDidMount() {
+    // trigger once per section: whole group fades in together with a small stagger buffer
     const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const wait = e.target.id === 'about' ? 1700 : 700;
+          setTimeout(() => {
+            e.target.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('in'));
+          }, wait);
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -45% 0px', threshold: 0.12 });
 
-    // stagger reveals per-section so groups cascade
     document.querySelectorAll('section').forEach((sec) => {
       const els = Array.from(sec.querySelectorAll('[data-reveal]'));
-      els.forEach((el, i) => { el.style.transitionDelay = (Math.min(i, 6) * 85) + 'ms'; io.observe(el); });
+      const alreadyVisible = sec.id === 'top';
+      els.forEach((el, i) => {
+        el.style.transition = 'opacity .9s cubic-bezier(.22,.9,.32,1), transform .9s cubic-bezier(.22,.9,.32,1)';
+        el.style.transitionDelay = (Math.min(i, 8) * 180) + 'ms';
+        if (el.closest('#gallery-3')) {
+          requestAnimationFrame(() => el.classList.add('in')); // let gallery photos animate in on load, staggered
+        } else if (alreadyVisible) {
+          el.classList.add('in'); // show instantly, no animation, for content visible on load
+        }
+      });
+      if (!alreadyVisible) io.observe(sec);
     });
     this._io = io;
 
