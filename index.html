@@ -58,8 +58,10 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
   #top { min-height: 0 !important; align-items: center !important; flex-direction: column !important; }
   #hero-copy { display: flex !important; flex-direction: column !important; align-items: center !important; padding-top: clamp(48px, 5vw, 80px) !important; padding-bottom: clamp(44px, 4.5vw, 72px) !important; padding-left: clamp(110px, 16vw, 225px) !important; padding-right: clamp(110px, 16vw, 225px) !important; }
   #hero-copy > div { max-width: 1280px !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
-  #hero-heading { font-size: clamp(52px, 4.6vw, 68px) !important; }
+  #hero-heading { font-size: clamp(52px, 4.6vw, 68px) !important; text-align: center !important; }
+  #hero-inner { max-width: 100% !important; }
   #hero-copy p { max-width: 765px !important; text-align: center !important; }
+
   #hero-wave-m { height: clamp(240px, 24vw, 360px) !important; }
   #gallery { display: none !important; }
   #gallery-3 { display: flex !important; }
@@ -121,22 +123,25 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
       <img data-hero-slide="" src="uploads/ChatGPT Image Aug 20, 2026, 11_37_41 PM.png" alt="The Spry family with their two golden retrievers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;opacity:0;transition:opacity 1.4s ease;animation:kenburns 24s ease-in-out infinite alternate">
       <img data-hero-slide="" src="uploads/ChatGPT Image Aug 20, 2026, 11_30_09 PM-20a89dfd.png" alt="Thomas and his wife at Glacier National Park" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 34%;opacity:0;transition:opacity 1.4s ease;animation:kenburns 24s ease-in-out infinite alternate">
     </div>
-    <div id="hero-ov" style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(1,6,3,.97) 0%, rgba(1,6,3,.94) 32%, rgba(1,10,5,.72) 52%, rgba(1,10,5,.3) 68%, rgba(1,10,5,.08) 80%)"></div>
-    <div id="hero-ov2" style="position:absolute;inset:0;background:linear-gradient(to top, rgba(1,6,3,.92) 0%, rgba(1,6,3,.35) 32%, rgba(1,6,3,0) 58%)"></div>
+    <div style="position:absolute;inset:0;background:rgba(2,12,6,.3)"></div>
+    <div id="hero-ov" style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(0,4,2,.96) 0%, rgba(0,4,2,.92) 34%, rgba(0,6,3,.7) 54%, rgba(0,6,3,.35) 70%, rgba(0,6,3,.12) 82%)"></div>
+    <div id="hero-ov2" style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,4,2,.9) 0%, rgba(0,4,2,.4) 32%, rgba(0,4,2,.05) 58%)"></div>
     <div style="position:absolute;top:-160px;left:-140px;width:560px;height:560px;border-radius:999px;background:radial-gradient(circle at 40% 40%, rgba(0,122,58,.32), rgba(0,122,58,0) 68%);filter:blur(14px);animation:floaty 15s ease-in-out infinite;pointer-events:none"></div>
 
     <div id="hero-copy" style="position:relative;z-index:2;width:100%;max-width:100%;margin:0;padding:0 84px clamp(60px,10vw,110px);container-type:inline-size">
-      <div style="max-width:460px">
+      <div id="hero-inner" style="max-width:460px">
         <div id="hero-badge" data-reveal="" style="display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 11px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:#d4f2e0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
           <span style="width:7px;height:7px;border-radius:999px;background:#37bf76;box-shadow:0 0 0 4px rgba(74,222,128,.22)"></span>
           Candidate — Yorktown Community Schools Board of Trustees
         </div>
 
-        <h1 id="hero-heading" data-reveal="" style="margin:20px 0 0;font-size:clamp(38px,7cqw,62px);line-height:.98;letter-spacing:-.03em;font-weight:800;color:#fff;text-wrap:balance">
+        <h1 id="hero-heading" data-reveal="" style="margin:20px 0 0;font-size:clamp(38px,7cqw,62px);line-height:1.1;letter-spacing:-.03em;font-weight:800;color:#fff;text-wrap:balance">
           Committed to Excellence
         </h1>
-        <div data-reveal="" style="margin:20px 0 0;font-size:clamp(16px,2.2cqw,23px);font-weight:800;letter-spacing:.16em;text-transform:uppercase;line-height:1.3;color:#ffffff;text-shadow:0 2px 12px rgba(3,26,16,.4)">
-          Thomas Spry for Yorktown Schoolboard
+        <div data-reveal="" style="margin:clamp(20px,3vw,40px) auto 0;display:flex;align-items:center;gap:16px;justify-content:center;max-width:100%;position:relative;z-index:1">
+          <span style="flex:0 0 clamp(60px,12vw,180px);height:2px;background:linear-gradient(to right,transparent,rgba(110,232,168,.5))"></span>
+          <span style="font-size:clamp(14px,1.8cqw,19px);font-weight:800;letter-spacing:.14em;text-transform:uppercase;line-height:1.35;color:#6ee8a8;white-space:nowrap">Thomas Spry for Yorktown Schoolboard</span>
+          <span style="flex:0 0 clamp(60px,12vw,180px);height:2px;background:linear-gradient(to left,transparent,rgba(110,232,168,.5))"></span>
         </div>
 
         <p data-reveal="" style="margin:24px 0 0;max-width:440px;font-size:clamp(17px,2.2vw,21px);line-height:1.55;color:#dbe9e0;text-wrap:pretty">
