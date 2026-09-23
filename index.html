@@ -598,14 +598,14 @@ class Component extends DCLogic {
           name,
           email,
           message,
-          'cf-turnstile-response': this.state.turnstileToken,
+          botcheck: '',
         }),
       });
       const data = await res.json();
       if (data.success) {
         this.setState({ sending: false, sent: true });
       } else {
-        this.setState({ sending: false, error: 'Something went wrong sending your message. Please try again.' });
+        this.setState({ sending: false, error: 'Something went wrong sending your message: ' + (data.message || 'please try again.') });
       }
     } catch (e) {
       this.setState({ sending: false, error: 'Something went wrong sending your message. Please try again.' });
