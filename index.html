@@ -559,7 +559,7 @@ class Component extends DCLogic {
       this.turnstileRef.current.dataset.rendered = '1';
       this._turnstileRendered = true;
       window.turnstile.render(this.turnstileRef.current, {
-        sitekey: 'YOUR_CLOUDFLARE_TURNSTILE_SITE_KEY',
+        sitekey: '0x4AAAAAAFArFwlW5DG9TXcI',
         callback: (token) => this.setState({ turnstileToken: token }),
         'expired-callback': () => this.setState({ turnstileToken: null }),
       });
@@ -589,7 +589,7 @@ class Component extends DCLogic {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY',
+          access_key: 'd890fcec-8cc6-48aa-ab40-52f8c0bfb06f',
           subject: 'New message from the Yorktown School Board site',
           from_name: name,
           name,
