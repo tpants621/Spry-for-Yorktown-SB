@@ -59,7 +59,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
   #top { min-height: 0 !important; align-items: center !important; flex-direction: column !important; }
   #hero-copy { display: flex !important; flex-direction: column !important; align-items: center !important; padding-top: clamp(48px, 5vw, 80px) !important; padding-bottom: clamp(44px, 4.5vw, 72px) !important; padding-left: clamp(110px, 16vw, 225px) !important; padding-right: clamp(110px, 16vw, 225px) !important; }
   #hero-copy > div { max-width: 1280px !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
-  #hero-heading { font-size: clamp(52px, 4.6vw, 68px) !important; text-align: center !important; }
+  #hero-heading { font-size: clamp(52px, 4.6vw, 68px) !important; text-align: center !important; min-height: 0 !important; }
   #hero-inner { max-width: 100% !important; }
   #hero-copy p { max-width: 765px !important; text-align: center !important; }
 
@@ -139,25 +139,25 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
 
     <div id="hero-copy" style="position:relative;z-index:2;width:100%;max-width:100%;margin:0;padding:0 84px clamp(60px,10vw,110px);container-type:inline-size">
       <div id="hero-inner" style="max-width:460px">
-        <div id="hero-badge" data-reveal="" style="display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 11px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:#d4f2e0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
+        <div id="hero-badge" style="display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 11px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:#d4f2e0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
           <span style="width:7px;height:7px;border-radius:999px;background:#37bf76;box-shadow:0 0 0 4px rgba(74,222,128,.22)"></span>
           Candidate — Yorktown Community Schools Board of Trustees
         </div>
 
-        <h1 id="hero-heading" data-reveal="" style="margin:20px 0 0;font-size:clamp(38px,7cqw,62px);line-height:1.1;letter-spacing:-.03em;font-weight:800;color:#fff;text-wrap:balance">
+        <h1 id="hero-heading" style="margin:20px 0 0;font-size:clamp(38px,7cqw,62px);line-height:1.15;min-height:2.35em;letter-spacing:-.03em;font-weight:800;color:#fff;text-wrap:balance">
           Committed to Excellence
         </h1>
-        <div id="hero-subline" data-reveal="" style="margin:clamp(20px,3vw,40px) auto 0;display:flex;align-items:center;gap:16px;justify-content:center;max-width:100%;position:relative;z-index:1">
+        <div id="hero-subline" style="margin:clamp(30px,4.5vw,44px) auto 0;display:flex;align-items:center;gap:16px;justify-content:center;max-width:100%;position:relative;z-index:1">
           <span style="flex:0 0 clamp(60px,12vw,180px);height:2px;background:linear-gradient(to right,transparent,rgba(110,232,168,.5))"></span>
           <span style="font-size:clamp(14px,1.8cqw,19px);font-weight:800;letter-spacing:.14em;text-transform:uppercase;line-height:1.35;color:#6ee8a8;white-space:nowrap">Thomas Spry for Yorktown School Board</span>
           <span style="flex:0 0 clamp(60px,12vw,180px);height:2px;background:linear-gradient(to left,transparent,rgba(110,232,168,.5))"></span>
         </div>
 
-        <p data-reveal="" style="margin:24px 0 0;max-width:440px;font-size:clamp(17px,2.2vw,21px);line-height:1.55;color:#dbe9e0;text-wrap:pretty">
+        <p style="margin:24px 0 0;max-width:440px;font-size:clamp(17px,2.2vw,21px);line-height:1.55;color:#dbe9e0;text-wrap:pretty">
           An engineer, problem solver, and long-time Yorktown resident committed to taking what's already great and making it even better — academic achievement, fiscal stewardship, and student opportunity.
         </p>
 
-        <div id="hero-cta" data-reveal="" style="margin:34px 0 0;display:flex;flex-wrap:wrap;gap:12px">
+        <div id="hero-cta" style="margin:34px 0 0;display:flex;flex-wrap:wrap;gap:12px">
           <a href="#about" style="padding:15px 27px;border-radius:999px;white-space:nowrap;font-size:15.5px;font-weight:700;color:#ffffff;background:linear-gradient(160deg,#16a85e,#0a5c38);box-shadow:0 14px 40px rgba(0,0,0,.35), 0 6px 16px rgba(0,132,61,.5), inset 0 1px 0 rgba(255,255,255,.6)" style-hover="filter:brightness(1.08)">Meet Thomas</a>
           <a href="#pillars" style="padding:15px 27px;border-radius:999px;white-space:nowrap;font-size:15.5px;font-weight:700;color:#eaf6ee;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)" style-hover="background:rgba(255,255,255,.18)">My Platform</a>
         </div>
@@ -165,13 +165,13 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
     </div>
     <div id="gallery-3" style="display:none;position:relative;z-index:5;width:100%;justify-content:center;align-items:flex-end;gap:28px">
       <div data-reveal="" style="flex:none;width:clamp(170px,18.5vw,305px);height:clamp(221px,24vw,396px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
-        <img src="uploads/577054294_10239404194227265_4106296925650258213_n-521371be.jpg" alt="The Spry family with their golden retrievers" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 32%">
+        <img src="uploads/carousel-desktop-1.jpg" alt="The Spry family with their golden retrievers" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 32%">
       </div>
       <div data-reveal="" style="flex:none;width:clamp(187px,21vw,350px);height:clamp(255px,28vw,465px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
-        <img src="uploads/1774959444475%20(1).png" alt="Thomas Spry" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%">
+        <img src="uploads/carousel-desktop-2.png" alt="Thomas Spry" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%">
       </div>
       <div data-reveal="" style="flex:none;width:clamp(170px,18.5vw,305px);height:clamp(221px,24vw,396px);border-radius:24px;overflow:hidden;background:#dbe4d8;box-shadow:none;border:1px solid rgba(0,0,0,.06)">
-        <img src="uploads/655699414_10241650994315863_3805047959431114635_n%20(2)-c39d6749.jpg" alt="Thomas and his wife at Glacier National Park" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 32%">
+        <img src="uploads/carousel-desktop-3.jpg" alt="Thomas and his daughter with her Yorktown Elementary honor roll plaque" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 32%">
       </div>
     </div>
     <svg id="hero-wave-d" viewBox="0 0 1440 140" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(70px,9vw,140px);z-index:3;display:block"><path d="M0,132 C280,116 520,74 780,56 C1030,39 1240,26 1440,20 L1440,140 L0,140 Z" fill="#f4f7f1"></path></svg>
@@ -555,6 +555,8 @@ class Component extends DCLogic {
   renderTurnstile = () => {
     if (this._turnstileRendered) return;
     if (window.turnstile && this.turnstileRef.current) {
+      if (this.turnstileRef.current.dataset.rendered) return;
+      this.turnstileRef.current.dataset.rendered = '1';
       this._turnstileRendered = true;
       window.turnstile.render(this.turnstileRef.current, {
         sitekey: 'YOUR_CLOUDFLARE_TURNSTILE_SITE_KEY',
@@ -749,11 +751,11 @@ class Component extends DCLogic {
     const turnstileRef = this.turnstileRef;
     const submitForm = this.submitForm;
     const u = [
-      { src: 'uploads/577054294_10239404194227265_4106296925650258213_n-521371be.jpg', alt: 'The Spry family with their golden retrievers' },
-      { src: 'uploads/Screenshot 2026-09-21 at 10.03.24 PM.jpg', alt: 'The Spry family celebrating the Fourth of July' },
-      { src: 'uploads/1774959444475%20(1).png', alt: 'Thomas Spry' },
-      { src: 'uploads/655699414_10241650994315863_3805047959431114635_n-6c8e6f75.jpg', alt: 'The Spry family at Halloween' },
-      { src: 'uploads/Screenshot 2026-09-21 at 10.06.41 PM.jpg', alt: 'Thomas and his son at a baseball game' },
+      { src: 'uploads/carousel-mobile-1.jpg', alt: 'The Spry family with their golden retrievers' },
+      { src: 'uploads/carousel-mobile-2.jpg', alt: 'Thomas kneeling next to his son after a baseball game' },
+      { src: 'uploads/carousel-mobile-3.png', alt: 'Thomas Spry' },
+      { src: 'uploads/carousel-mobile-4.jpg', alt: 'Thomas and his daughter with her Yorktown Elementary honor roll plaque' },
+      { src: 'uploads/carousel-mobile-5.jpg', alt: 'Thomas and his son at a baseball game' },
     ];
     const slides = [];
     for (let i = 0; i < 4; i++) u.forEach((s) => slides.push(s));
