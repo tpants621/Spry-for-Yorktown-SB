@@ -504,7 +504,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
             </div>
           </div>
         </sc-if>
-        <sc-if value="{{ !sent }}" hint-placeholder-val="{{ true }}">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
           <div data-reveal="" style="position:relative;margin:32px 0 0;display:grid;gap:14px;max-width:640px">
             <div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
               <label style="display:grid;gap:8px">
@@ -552,13 +552,16 @@ class Component extends DCLogic {
   honeypotRef = React.createRef();
   turnstileRef = React.createRef();
   _turnstileRendered = false;
+  componentDidUpdate() {
+    this.renderTurnstile();
+  }
   renderTurnstile = () => {
-    if (this._turnstileRendered) return;
-    if (window.turnstile && this.turnstileRef.current) {
-      if (this.turnstileRef.current.dataset.rendered) return;
-      this.turnstileRef.current.dataset.rendered = '1';
-      this._turnstileRendered = true;
-      window.turnstile.render(this.turnstileRef.current, {
+    if (this.state.sent) return;
+    const el = this.turnstileRef.current;
+    if (el && el.dataset.rendered) return;
+    if (window.turnstile && el) {
+      el.dataset.rendered = '1';
+      window.turnstile.render(el, {
         sitekey: '0x4AAAAAAFArFwlW5DG9TXcI',
         callback: (token) => this.setState({ turnstileToken: token }),
         'expired-callback': () => this.setState({ turnstileToken: null }),
@@ -781,7 +784,7 @@ class Component extends DCLogic {
     const isProfessional = this.state.aboutTab === 'professional';
     return {
       slides,
-      sending, sent, error, sendLabel, sendOpacity,
+      sending, sent, notSent: !sent, error, sendLabel, sendOpacity,
       nameRef, emailRef, messageRef, honeypotRef, turnstileRef, submitForm,
       menuOpen: this.state.menuOpen,
       isPersonal,
