@@ -18,6 +18,7 @@
 <body>
 <x-dc>
 <helmet>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async="" defer=""></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Newsreader:ital,opsz,wght@1,6..72,300;0,6..72,400&amp;display=swap" rel="stylesheet">
@@ -65,8 +66,8 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
   #hero-wave-m { height: clamp(240px, 24vw, 360px) !important; }
   #gallery { display: none !important; }
   #gallery-3 { display: flex !important; }
-  #about-grid { grid-template-columns: 1.05fr 0.95fr !important; }
-  #about-text { grid-column: 2 !important; }
+  #about-grid { grid-template-columns: 0.95fr 1.05fr !important; }
+  #about-text { grid-column: 1 !important; }
   #about-lego { display: block !important; }
 }
 @media (max-width: 759px) {
@@ -104,6 +105,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
       <nav style="display:flex;align-items:center;gap:4px">
         <a href="#about" style="display:none;padding:9px 13px;border-radius:999px;font-size:14px;font-weight:600;color:#d4e6da" style-hover="background:rgba(255,255,255,.12);color:#fff">Meet Thomas</a>
         <a href="#pillars" style="display:none;padding:9px 13px;border-radius:999px;font-size:14px;font-weight:600;color:#d4e6da" style-hover="background:rgba(255,255,255,.12);color:#fff">Platform</a>
+        <a href="#work" style="display:none;padding:9px 13px;border-radius:999px;font-size:14px;font-weight:600;color:#d4e6da" style-hover="background:rgba(255,255,255,.12);color:#fff">Key Initiatives</a>
 
         <a id="contact-btn" href="#contact" style="padding:10px 18px;border-radius:999px;font-size:14px;font-weight:700;white-space:nowrap;color:#ffffff;background:linear-gradient(160deg,#16a85e,#0a5c38);box-shadow:0 8px 22px rgba(0,132,61,.35), inset 0 1px 0 rgba(255,255,255,.6)" style-hover="filter:brightness(1.08)">Get in touch</a>
         <button id="hamburger-btn" aria-label="Menu" onClick="{{ toggleMenu }}" style="display:none;width:40px;height:40px;border-radius:11px;align-items:center;justify-content:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);cursor:pointer;flex:none">
@@ -120,6 +122,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
   <div id="mobile-menu" style="position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:min(28px,4.5vh);padding:16px;box-sizing:border-box;background:radial-gradient(120% 90% at 80% -8%, rgba(31,146,86,.92) 0%, rgba(12,92,56,.94) 46%, rgba(6,61,38,.96) 100%);opacity:{{ menuOverlayOpacity }};pointer-events:{{ menuPointerEvents }};clip-path:{{ menuClip }};transition:opacity .4s ease, clip-path .55s cubic-bezier(.65,0,.35,1)">
     <a href="#about" onClick="{{ closeMenu }}" style="font-size:min(28px,5.5vh);font-weight:700;color:#fff;letter-spacing:-.01em">Meet Thomas</a>
     <a href="#pillars" onClick="{{ closeMenu }}" style="font-size:min(28px,5.5vh);font-weight:700;color:#fff;letter-spacing:-.01em">Platform</a>
+    <a href="#work" onClick="{{ closeMenu }}" style="font-size:min(28px,5.5vh);font-weight:700;color:#fff;letter-spacing:-.01em">Key Initiatives</a>
     <a href="#contact" onClick="{{ closeMenu }}" style="margin-top:min(10px,1.5vh);padding:min(14px,2.2vh) 30px;border-radius:999px;font-size:min(18px,3.6vh);font-weight:700;color:#fff;background:linear-gradient(160deg,#16a85e,#0a5c38);box-shadow:0 14px 34px rgba(0,132,61,.45)">Get in touch</a>
   </div>
 
@@ -146,17 +149,17 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
         </h1>
         <div id="hero-subline" data-reveal="" style="margin:clamp(20px,3vw,40px) auto 0;display:flex;align-items:center;gap:16px;justify-content:center;max-width:100%;position:relative;z-index:1">
           <span style="flex:0 0 clamp(60px,12vw,180px);height:2px;background:linear-gradient(to right,transparent,rgba(110,232,168,.5))"></span>
-          <span style="font-size:clamp(14px,1.8cqw,19px);font-weight:800;letter-spacing:.14em;text-transform:uppercase;line-height:1.35;color:#6ee8a8;white-space:nowrap">Thomas Spry for Yorktown Schoolboard</span>
+          <span style="font-size:clamp(14px,1.8cqw,19px);font-weight:800;letter-spacing:.14em;text-transform:uppercase;line-height:1.35;color:#6ee8a8;white-space:nowrap">Thomas Spry for Yorktown School Board</span>
           <span style="flex:0 0 clamp(60px,12vw,180px);height:2px;background:linear-gradient(to left,transparent,rgba(110,232,168,.5))"></span>
         </div>
 
         <p data-reveal="" style="margin:24px 0 0;max-width:440px;font-size:clamp(17px,2.2vw,21px);line-height:1.55;color:#dbe9e0;text-wrap:pretty">
-          An engineer, problem solver, and lifelong Yorktown resident committed to taking what's already great and making it even better — academic achievement, fiscal stewardship, and student opportunity.
+          An engineer, problem solver, and long-time Yorktown resident committed to taking what's already great and making it even better — academic achievement, fiscal stewardship, and student opportunity.
         </p>
 
         <div id="hero-cta" data-reveal="" style="margin:34px 0 0;display:flex;flex-wrap:wrap;gap:12px">
-          <a href="#pillars" style="padding:15px 27px;border-radius:999px;white-space:nowrap;font-size:15.5px;font-weight:700;color:#ffffff;background:linear-gradient(160deg,#16a85e,#0a5c38);box-shadow:0 14px 40px rgba(0,0,0,.35), 0 6px 16px rgba(0,132,61,.5), inset 0 1px 0 rgba(255,255,255,.6)" style-hover="filter:brightness(1.08)">Why I'm running
-          <a href="#pillars" style="padding:15px 27px;border-radius:999px;white-space:nowrap;font-size:15.5px;font-weight:700;color:#eaf6ee;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)" style-hover="background:rgba(255,255,255,.18)">See the priorities</a>
+          <a href="#about" style="padding:15px 27px;border-radius:999px;white-space:nowrap;font-size:15.5px;font-weight:700;color:#ffffff;background:linear-gradient(160deg,#16a85e,#0a5c38);box-shadow:0 14px 40px rgba(0,0,0,.35), 0 6px 16px rgba(0,132,61,.5), inset 0 1px 0 rgba(255,255,255,.6)" style-hover="filter:brightness(1.08)">Meet Thomas</a>
+          <a href="#pillars" style="padding:15px 27px;border-radius:999px;white-space:nowrap;font-size:15.5px;font-weight:700;color:#eaf6ee;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)" style-hover="background:rgba(255,255,255,.18)">My Platform</a>
         </div>
       </div>
     </div>
@@ -175,28 +178,12 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
     <svg id="hero-wave-m" viewBox="0 0 1440 620" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(400px,44vw,660px);z-index:3;display:none;pointer-events:none"><path d="M0,82 C300,44 500,44 700,82 C1000,130 1250,190 1440,251 L1440,620 L0,620 Z" fill="#f4f7f1"></path></svg>
   </section>
 
-  <section id="about" style="position:relative;z-index:3;background:linear-gradient(180deg,#f4f7f1 0%,#eaf0e6 100%);color:#132318">
-    <img id="about-lego" data-reveal="" src="uploads/ChatGPT Image Aug 21, 2026, 04_18_10 PM-7bc6eef4.png" alt="LEGO model of Yorktown High School" style="position:absolute;left:-140px;top:clamp(60px,8vw,120px);width:clamp(560px,60vw,900px);z-index:1;pointer-events:none;user-select:none">
+  <section id="about" style="position:relative;overflow-x:clip;z-index:3;background:linear-gradient(180deg,#f4f7f1 0%,#eaf0e6 100%);color:#132318">
+    <img id="about-lego" data-reveal="" src="uploads/ChatGPT Image Aug 21, 2026, 04_18_10 PM-7bc6eef4.png" alt="LEGO model of Yorktown High School" style="position:absolute;right:40px;top:-6px;width:clamp(460px,48vw,660px);z-index:1;pointer-events:none;user-select:none">
     <div id="about-grid" style="max-width:1200px;margin:0 auto;padding:clamp(48px,7vw,84px) 22px clamp(80px,10vw,132px);display:grid;gap:clamp(32px,5vw,64px);grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:center;column-gap:clamp(32px,5vw,64px)">
       <div id="about-text">
         <div data-reveal="" style="font-size:12.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#0a6e42">Meet Thomas</div>
-        <h2 data-reveal="" style="margin:16px 0 0;font-size:clamp(30px,4.5vw,48px);line-height:1.05;letter-spacing:-.03em;font-weight:800;color:#0f2117;text-wrap:balance">Putting complex pieces together to make something great even better.</h2>
-        <div style="margin:28px 0 0;display:flex;gap:28px;position:relative;border-bottom:2px solid rgba(10,110,66,.12);max-width:520px">
-          <button onClick="{{ setTabPersonal }}" style="padding:12px 0;font-size:15px;font-weight:700;letter-spacing:-.01em;border:none;border-bottom:2.5px solid transparent;margin-bottom:-2px;cursor:pointer;transition:color .3s ease;background:transparent;color:{{ tabPersonalUnderlineColor }};border-bottom-color:{{ tabPersonalUnderlineBorder }}">Community Focus</button>
-          <button onClick="{{ setTabProfessional }}" style="padding:12px 0;font-size:15px;font-weight:700;letter-spacing:-.01em;border:none;border-bottom:2.5px solid transparent;margin-bottom:-2px;cursor:pointer;transition:color .3s ease;background:transparent;color:{{ tabProfessionalUnderlineColor }};border-bottom-color:{{ tabProfessionalUnderlineBorder }}">Professional Background</button>
-        </div>
-        <div style="margin:22px 0 0;max-width:520px;font-size:16.5px;line-height:1.62;color:#3d4d43">
-          <sc-if value="{{ isPersonal }}" hint-placeholder-val="{{ true }}">
-            <div style="animation:fadeTab .4s ease">
-              <p style="margin:0;text-wrap:pretty">My wife Maggie and I have been proud Yorktown residents our entire adult lives. We intentionally chose Yorktown as the community to raise our family. Our two children, Leah and Levi, are current students in Yorktown Community Schools, giving our family a direct, everyday stake in the success, safety, and vitality of our classrooms.</p>
-            </div>
-          </sc-if>
-          <sc-if value="{{ isProfessional }}" hint-placeholder-val="{{ false }}">
-            <div style="animation:fadeTab .4s ease">
-              <p style="margin:0;text-wrap:pretty">By profession, I am a mechanical engineer—a problem solver, opportunity finder, and project manager. Over a 20+ year career centered on value creation and continuous improvement, I have specialized in optimizing complex systems, eliminating waste, and bringing people together around common goals. I find the value in every dollar.</p>
-            </div>
-          </sc-if>
-        </div>
+        <h2 data-reveal="" style="margin:16px 0 0;font-size:clamp(30px,4.5vw,48px);line-height:1.05;letter-spacing:-.03em;font-weight:800;color:#0f2117;text-wrap:balance">Putting complex pieces together to make a great school system excellent.</h2>
       </div>
 
       <div id="about-photo" data-reveal="left" style="position:relative;z-index:6;order:-1">
@@ -219,6 +206,29 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
           </div>
         </div>
       </div>
+
+      <div style="grid-column:1/-1;margin-top:20px;display:grid;gap:clamp(28px,4vw,48px);grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+        <div data-reveal="">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="flex-shrink:0;width:38px;height:38px;border-radius:999px;background:linear-gradient(150deg,#2fae6e,#0a5c38);display:grid;place-items:center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <div style="font-size:16px;font-weight:800;letter-spacing:-.01em;color:#0a6e42;white-space:nowrap">Community Focus</div>
+            <div style="flex:1;height:2px;background:rgba(10,110,66,.22)"></div>
+          </div>
+          <p style="margin:16px 0 0;font-size:16.5px;line-height:1.62;color:#3d4d43;text-wrap:pretty">My wife Maggie and I have been proud Yorktown residents our entire adult lives. We intentionally chose Yorktown as the community to raise our family. Our two children, Leah and Levi, are current students in Yorktown Community Schools, giving our family a direct, everyday stake in the success, safety, and vitality of our classrooms.</p>
+        </div>
+        <div data-reveal="">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="flex-shrink:0;width:38px;height:38px;border-radius:999px;background:linear-gradient(150deg,#2fae6e,#0a5c38);display:grid;place-items:center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <div style="font-size:16px;font-weight:800;letter-spacing:-.01em;color:#0a6e42;white-space:nowrap">Professional Background</div>
+            <div style="flex:1;height:2px;background:rgba(10,110,66,.22)"></div>
+          </div>
+          <p style="margin:16px 0 0;font-size:16.5px;line-height:1.62;color:#3d4d43;text-wrap:pretty">By profession, I am a mechanical engineer—a problem solver, opportunity finder, and project manager. Over a 20+ year career centered on value creation and continuous improvement, I have specialized in optimizing complex systems, eliminating waste, and bringing people together around common goals. I find the value in every dollar.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -235,10 +245,10 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
       <div style="margin:48px 0 0;display:grid;gap:0;grid-template-columns:260px 2px 1fr" id="pillars-grid">
         <!-- Vertical tab nav -->
         <div style="display:flex;flex-direction:column;gap:4px;padding-right:24px">
-          <button onClick="{{ setPillar0 }}" style="text-align:left;padding:14px 18px;border-radius:14px;border:none;cursor:pointer;font-size:15px;font-weight:700;letter-spacing:-.01em;transition:all .3s ease;background:{{ pillarBg0 }};color:{{ pillarColor0 }}">Fiscal Strength &amp; Smart Growth</button>
-          <button onClick="{{ setPillar1 }}" style="text-align:left;padding:14px 18px;border-radius:14px;border:none;cursor:pointer;font-size:15px;font-weight:700;letter-spacing:-.01em;transition:all .3s ease;background:{{ pillarBg1 }};color:{{ pillarColor1 }}">Unrivaled Academic Excellence</button>
-          <button onClick="{{ setPillar2 }}" style="text-align:left;padding:14px 18px;border-radius:14px;border:none;cursor:pointer;font-size:15px;font-weight:700;letter-spacing:-.01em;transition:all .3s ease;background:{{ pillarBg2 }};color:{{ pillarColor2 }}">Transformative Experience</button>
-          <button onClick="{{ setPillar3 }}" style="text-align:left;padding:14px 18px;border-radius:14px;border:none;cursor:pointer;font-size:15px;font-weight:700;letter-spacing:-.01em;transition:all .3s ease;background:{{ pillarBg3 }};color:{{ pillarColor3 }}">Open Dialogue &amp; Partnership</button>
+          <button onClick="{{ setPillar0 }}" style="display:grid;grid-template-columns:1fr 3fr;align-items:center;gap:0px;text-align:left;padding:14px 18px;border-radius:14px;border:none;cursor:pointer;font-size:15px;font-weight:700;letter-spacing:-.01em;transition:all .3s ease;background:{{ pillarBg0 }};color:{{ pillarColor0 }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10M9.5 15c0 1.1 1.1 2 2.5 2s2.5-.9 2.5-2c0-1.3-1.2-1.7-2.5-2.1-1.3-.4-2.5-.8-2.5-2.1 0-1.1 1.1-2 2.5-2s2.5.9 2.5 2"></path></svg><span>Fiscal Strength &amp; Smart Growth</span></button>
+          <button onClick="{{ setPillar1 }}" style="display:grid;grid-template-columns:1fr 3fr;align-items:center;gap:0px;text-align:left;padding:14px 18px;border-radius:14px;border:none;cursor:pointer;font-size:15px;font-weight:700;letter-spacing:-.01em;transition:all .3s ease;background:{{ pillarBg1 }};color:{{ pillarColor1 }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"></path><path d="M6 12v5c0 1.1 2.7 2 6 2s6-.9 6-2v-5"></path></svg><span>Unrivaled Academic Excellence</span></button>
+          <button onClick="{{ setPillar2 }}" style="display:grid;grid-template-columns:1fr 3fr;align-items:center;gap:0px;text-align:left;padding:14px 18px;border-radius:14px;border:none;cursor:pointer;font-size:15px;font-weight:700;letter-spacing:-.01em;transition:all .3s ease;background:{{ pillarBg2 }};color:{{ pillarColor2 }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.9L21 12l-6.6 3.1L12 22l-2.4-6.9L3 12l6.6-3.1L12 2z"></path></svg><span>Transformative Experience</span></button>
+          <button onClick="{{ setPillar3 }}" style="display:grid;grid-template-columns:1fr 3fr;align-items:center;gap:0px;text-align:left;padding:14px 18px;border-radius:14px;border:none;cursor:pointer;font-size:15px;font-weight:700;letter-spacing:-.01em;transition:all .3s ease;background:{{ pillarBg3 }};color:{{ pillarColor3 }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg><span>Open Dialogue &amp; Partnership</span></button>
         </div>
         <!-- Vertical line -->
         <div style="background:rgba(255,255,255,.18);border-radius:2px"></div>
@@ -260,7 +270,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
                 </div>
                 <div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)">
                   <button onClick="{{ toggleAcc_fiscal_3 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border:none;cursor:pointer;background:transparent;color:#fff;font-size:14.5px;font-weight:700;text-align:left"><span>Modernizing Facilities via Long-Term Planning</span><span style="flex-shrink:0;font-size:18px;transition:transform .3s ease;transform:{{ accRot_fiscal_3 }}">+</span></button>
-                  <div style="display:grid;grid-template-rows:{{ accH_fiscal_3 }};transition:grid-template-rows .42s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden;min-height:0"><div style="padding:0 18px 18px"><p style="margin:0;font-size:14px;line-height:1.6;letter-spacing:.015em;color:#dceee4;text-wrap:pretty">I support establishing a dedicated Building &amp; Facilities Committee composed of community stakeholders, facility experts, and educators. This committee will guide the development of a long-term Facility Master Plan to prioritize preventive maintenance, classroom modernization, and all extracurricular facility enhancements.</p></div></div></div>
+                  <div style="display:grid;grid-template-rows:{{ accH_fiscal_3 }};transition:grid-template-rows .42s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden;min-height:0"><div style="padding:0 18px 18px"><p style="margin:0;font-size:14px;line-height:1.6;letter-spacing:.015em;color:#dceee4;text-wrap:pretty">I support establishing a dedicated Building &amp; Facilities Committee composed of community stakeholders, facility experts, and educators. This committee will guide the development of a long-term Facility Master Plan to prioritize preventive maintenance, classroom modernization, and all extracurricular facility enhancements. By identifying and resolving facility problems earlier than full-on failure, we will reduce our operating costs and reduce financial burdens of large renovation projects. We have built great facilities over the past few years - now is the time to maintain them.</p></div></div></div>
                 </div>
                 <div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)">
                   <button onClick="{{ toggleAcc_fiscal_4 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border:none;cursor:pointer;background:transparent;color:#fff;font-size:14.5px;font-weight:700;text-align:left"><span>Securing Non-Tax Revenue (Grant-Writing Coordination)</span><span style="flex-shrink:0;font-size:18px;transition:transform .3s ease;transform:{{ accRot_fiscal_4 }}">+</span></button>
@@ -291,7 +301,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
                         <li><strong style="color:#d0e4d8">Enrichment &amp; High Achievement:</strong> Accelerated learning and high-ability opportunities for advanced learners.</li>
                         <li><strong style="color:#d0e4d8">Career &amp; Technical Education:</strong> Deepened collaboration with the Delaware County Career Center, including coordinated transportation solutions.</li>
                         <li><strong style="color:#d0e4d8">Expanded Dual Credit Offerings:</strong> Broadening partnerships with state universities so students can earn substantial college credits before graduation.</li>
-                        <li><strong style="color:#d0e4d8">Strengthened Regional Alliances:</strong> Evaluating cooperative educational partnerships to ensure superior service delivery and localized oversight.</li>
+                        <li><strong style="color:#d0e4d8">Strengthened Regional Alliances:</strong> Evaluating cooperative educational partnerships (such as transitioning from regional Delaware County special education co-op to optimized local program) to ensure superior special education delivery and localized oversight.</li>
                       </ul>
                     </div></div></div></div>
                 </div>
@@ -317,11 +327,11 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
               <div style="display:grid;gap:6px">
                 <div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)">
                   <button onClick="{{ toggleAcc_trans_1 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border:none;cursor:pointer;background:transparent;color:#fff;font-size:14.5px;font-weight:700;text-align:left"><span>Implementing the Sunflower Program</span><span style="flex-shrink:0;font-size:18px;transition:transform .3s ease;transform:{{ accRot_trans_1 }}">+</span></button>
-                  <div style="display:grid;grid-template-rows:{{ accH_trans_1 }};transition:grid-template-rows .42s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden;min-height:0"><div style="padding:0 18px 18px"><p style="margin:0;font-size:14px;line-height:1.6;letter-spacing:.015em;color:#dceee4;text-wrap:pretty">Many students navigate hidden disabilities, neurodivergence, or sensory sensitivities. I propose implementing the globally recognized Hidden Disabilities Sunflower Program within Yorktown Schools. Training staff to recognize this subtle symbol of support will position Yorktown as a regional leader in compassionate, inclusive student care.</p></div></div></div>
+                  <div style="display:grid;grid-template-rows:{{ accH_trans_1 }};transition:grid-template-rows .42s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden;min-height:0"><div style="padding:0 18px 18px"><p style="margin:0;font-size:14px;line-height:1.6;letter-spacing:.015em;color:#dceee4;text-wrap:pretty">Many students navigate hidden disabilities, neurodivergence, or sensory sensitivities. I propose implementing the globally recognized Hidden Disabilities Sunflower Program within Yorktown Schools. Training staff and engaging student leaders to support students, will position Yorktown as a first-in-class leader in compassionate, inclusive student care. <a href="https://hdsunflower.com/us/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">Find out more about the Sunflower Program</a></p></div></div></div>
                 </div>
                 <div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)">
                   <button onClick="{{ toggleAcc_trans_2 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border:none;cursor:pointer;background:transparent;color:#fff;font-size:14.5px;font-weight:700;text-align:left"><span>Behavioral &amp; Mental Health Support</span><span style="flex-shrink:0;font-size:18px;transition:transform .3s ease;transform:{{ accRot_trans_2 }}">+</span></button>
-                  <div style="display:grid;grid-template-rows:{{ accH_trans_2 }};transition:grid-template-rows .42s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden;min-height:0"><div style="padding:0 18px 18px"><p style="margin:0;font-size:14px;line-height:1.6;letter-spacing:.015em;color:#dceee4;text-wrap:pretty">Addressing complex modern student needs requires auditing our current wellness resources and realigning counseling and support staff to ensure proactive, accessible intervention across all grade levels.</p></div></div></div>
+                  <div style="display:grid;grid-template-rows:{{ accH_trans_2 }};transition:grid-template-rows .42s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden;min-height:0"><div style="padding:0 18px 18px"><p style="margin:0;font-size:14px;line-height:1.6;letter-spacing:.015em;color:#dceee4;text-wrap:pretty">Responsible fiscal oversight lets us put our school budget directly into our classrooms where it matters most. By increasing hands-on support staff and support staff training, we give educators direct support during daily lessons.</p></div></div></div>
                 </div>
                 <div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)">
                   <button onClick="{{ toggleAcc_trans_3 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border:none;cursor:pointer;background:transparent;color:#fff;font-size:14.5px;font-weight:700;text-align:left"><span>Fostering Civic Responsibility and Character</span><span style="flex-shrink:0;font-size:18px;transition:transform .3s ease;transform:{{ accRot_trans_3 }}">+</span></button>
@@ -329,7 +339,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
                 </div>
                 <div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)">
                   <button onClick="{{ toggleAcc_trans_4 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border:none;cursor:pointer;background:transparent;color:#fff;font-size:14.5px;font-weight:700;text-align:left"><span>Equitable Support Systems</span><span style="flex-shrink:0;font-size:18px;transition:transform .3s ease;transform:{{ accRot_trans_4 }}">+</span></button>
-                  <div style="display:grid;grid-template-rows:{{ accH_trans_4 }};transition:grid-template-rows .42s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden;min-height:0"><div style="padding:0 18px 18px"><p style="margin:0;font-size:14px;line-height:1.6;letter-spacing:.015em;color:#dceee4;text-wrap:pretty">Whether inside an honors classroom, on the performing arts stage, on an athletic field, or within special support programs, every student should have access to the guidance and tools required to flourish.</p></div></div></div>
+                  <div style="display:grid;grid-template-rows:{{ accH_trans_4 }};transition:grid-template-rows .42s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden;min-height:0"><div style="padding:0 18px 18px"><p style="margin:0;font-size:14px;line-height:1.6;letter-spacing:.015em;color:#dceee4;text-wrap:pretty">Whether inside an honors classroom, on the performing art stage, on an athletic field, or within special support programs, every student should have access to the guidance and tools required to flourish in their own individual ways. It is the responsibility of a school board member to ensure that all student's needs are met as best as possible with the financial resources available.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -410,7 +420,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
           </div>
           <p style="margin:0;font-size:15px;line-height:1.55;color:#4c5c52;text-wrap:pretty">Relieve teacher workload and attract external non-tax revenue.</p>
           <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(10,110,66,.14)">
-            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary beneficiary</div>
+            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary Beneficiaries</div>
             <div style="margin:5px 0 0;font-size:14px;font-weight:600;line-height:1.4;color:#2c3e33">Teachers, Taxpayers &amp; Students</div>
           </div>
         </div>
@@ -421,7 +431,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
           </div>
           <p style="margin:0;font-size:15px;line-height:1.55;color:#4c5c52;text-wrap:pretty">Ensure absolute transparency in taxpayer expenditure.</p>
           <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(10,110,66,.14)">
-            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary beneficiary</div>
+            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary Beneficiaries</div>
             <div style="margin:5px 0 0;font-size:14px;font-weight:600;line-height:1.4;color:#2c3e33">Community &amp; Taxpayers</div>
           </div>
         </div>
@@ -432,7 +442,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
           </div>
           <p style="margin:0;font-size:15px;line-height:1.55;color:#4c5c52;text-wrap:pretty">Long-term planning for building maintenance and upgrades.</p>
           <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(10,110,66,.14)">
-            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary beneficiary</div>
+            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary Beneficiaries</div>
             <div style="margin:5px 0 0;font-size:14px;font-weight:600;line-height:1.4;color:#2c3e33">Students &amp; Extracurricular Programs</div>
           </div>
         </div>
@@ -443,7 +453,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
           </div>
           <p style="margin:0;font-size:15px;line-height:1.55;color:#4c5c52;text-wrap:pretty">Subsidize graduate courses for teachers to expand Dual Credit courses.</p>
           <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(10,110,66,.14)">
-            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary beneficiary</div>
+            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary Beneficiaries</div>
             <div style="margin:5px 0 0;font-size:14px;font-weight:600;line-height:1.4;color:#2c3e33">Educators &amp; High School Students</div>
           </div>
         </div>
@@ -454,8 +464,8 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
           </div>
           <p style="margin:0;font-size:15px;line-height:1.55;color:#4c5c52;text-wrap:pretty">Provide proactive, empathetic support for hidden disabilities.</p>
           <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(10,110,66,.14)">
-            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary beneficiary</div>
-            <div style="margin:5px 0 0;font-size:14px;font-weight:600;line-height:1.4;color:#2c3e33">Neurodiverse Students &amp; Families</div>
+            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary Beneficiaries</div>
+            <div style="margin:5px 0 0;font-size:14px;font-weight:600;line-height:1.4;color:#2c3e33">Students, Teachers, and Families</div>
           </div>
         </div>
         <div class="lift" data-reveal="scale" style="display:flex;flex-direction:column;gap:14px;padding:28px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.94),rgba(255,255,255,.66));border:1px solid rgba(10,110,66,.15);box-shadow:0 24px 46px -30px rgba(15,40,25,.5), inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
@@ -465,7 +475,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
           </div>
           <p style="margin:0;font-size:15px;line-height:1.55;color:#4c5c52;text-wrap:pretty">Protect resident capacity while smartly managing choice enrollment.</p>
           <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(10,110,66,.14)">
-            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary beneficiary</div>
+            <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0a6e42">Primary Beneficiaries</div>
             <div style="margin:5px 0 0;font-size:14px;font-weight:600;line-height:1.4;color:#2c3e33">Yorktown Families</div>
           </div>
         </div>
@@ -480,26 +490,44 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
       <div style="position:relative">
         <div style="position:absolute;top:-120px;right:-100px;width:340px;height:340px;border-radius:999px;background:radial-gradient(circle,rgba(0,169,78,.5),rgba(0,169,78,0) 70%);pointer-events:none"></div>
         <div data-reveal="" style="position:relative;font-size:12.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#4dc487">Get in touch</div>
-        <h2 data-reveal="" style="position:relative;margin:16px 0 0;max-width:660px;font-size:clamp(34px,7vw,64px);line-height:.98;letter-spacing:-.03em;font-weight:800;color:#fff;text-wrap:balance">I'd rather answer than assume.</h2>
-        <p data-reveal="" style="position:relative;margin:16px 0 0;max-width:480px;font-size:16.5px;line-height:1.6;color:#cfe3d6;text-wrap:pretty">Questions, concerns, or something in your child's building the board should know. Send it over.</p>
+        <h2 data-reveal="" style="position:relative;margin:16px 0 0;max-width:660px;font-size:clamp(34px,7vw,64px);line-height:.98;letter-spacing:-.03em;font-weight:800;color:#fff;text-wrap:balance">Join the conversation.</h2>
+        <p data-reveal="" style="position:relative;margin:16px 0 0;max-width:480px;font-size:16.5px;line-height:1.6;color:#cfe3d6;text-wrap:pretty">Great schools are built by engaged communities. I invite every Yorktown parent, teacher, business owner, and neighbor to share their priorities, ask questions, and partner in this effort. Together many hands make a burden light.</p>
 
-        <div data-reveal="" style="position:relative;margin:32px 0 0;display:grid;gap:14px;max-width:640px">
-          <div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-            <label style="display:grid;gap:8px">
-              <span style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#a8c6b4">Name</span>
-              <input type="text" placeholder="Your name" style="padding:15px 17px;border-radius:15px;font-size:16px;color:#fff;background:rgba(3,26,16,.42);border:1px solid rgba(255,255,255,.16);outline:none" style-focus="border-color:#37bf76;background:rgba(3,26,16,.55)">
-            </label>
-            <label style="display:grid;gap:8px">
-              <span style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#a8c6b4">Email</span>
-              <input type="email" placeholder="you@email.com" style="padding:15px 17px;border-radius:15px;font-size:16px;color:#fff;background:rgba(3,26,16,.42);border:1px solid rgba(255,255,255,.16);outline:none" style-focus="border-color:#37bf76;background:rgba(3,26,16,.55)">
-            </label>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div data-reveal="" style="position:relative;margin:32px 0 0;max-width:520px;padding:28px 26px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);display:flex;gap:16px;align-items:flex-start">
+            <span style="flex:none;width:38px;height:38px;border-radius:999px;background:linear-gradient(150deg,#2fae6e,#0a5c38);display:grid;place-items:center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+            <div>
+              <div style="font-size:17px;font-weight:800;color:#fff">Message sent.</div>
+              <p style="margin:6px 0 0;font-size:15px;line-height:1.5;color:#cfe3d6">Thanks for reaching out — I'll get back to you soon.</p>
+            </div>
           </div>
-          <label style="display:grid;gap:8px">
-            <span style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#a8c6b4">Message</span>
-            <textarea rows="5" placeholder="What's on your mind?" style="padding:15px 17px;border-radius:15px;font-size:16px;line-height:1.5;color:#fff;background:rgba(3,26,16,.42);border:1px solid rgba(255,255,255,.16);outline:none;resize:vertical" style-focus="border-color:#37bf76;background:rgba(3,26,16,.55)"></textarea>
-          </label>
-          <button type="button" style="margin-top:4px;padding:16px 28px;border:none;border-radius:999px;font-size:16px;font-weight:800;letter-spacing:-.01em;color:#ffffff;cursor:pointer;background:linear-gradient(160deg,#16a85e,#0a5c38);box-shadow:0 14px 30px -8px rgba(3,26,16,.5), inset 0 1px 0 rgba(255,255,255,.6)" style-hover="filter:brightness(1.08)">Send message</button>
-        </div>
+        </sc-if>
+        <sc-if value="{{ !sent }}" hint-placeholder-val="{{ true }}">
+          <div data-reveal="" style="position:relative;margin:32px 0 0;display:grid;gap:14px;max-width:640px">
+            <div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+              <label style="display:grid;gap:8px">
+                <span style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#a8c6b4">Name</span>
+                <input ref="{{ nameRef }}" type="text" placeholder="Your name" style="padding:15px 17px;border-radius:15px;font-size:16px;color:#fff;background:rgba(3,26,16,.42);border:1px solid rgba(255,255,255,.16);outline:none" style-focus="border-color:#37bf76;background:rgba(3,26,16,.55)">
+              </label>
+              <label style="display:grid;gap:8px">
+                <span style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#a8c6b4">Email</span>
+                <input ref="{{ emailRef }}" type="email" placeholder="you@email.com" style="padding:15px 17px;border-radius:15px;font-size:16px;color:#fff;background:rgba(3,26,16,.42);border:1px solid rgba(255,255,255,.16);outline:none" style-focus="border-color:#37bf76;background:rgba(3,26,16,.55)">
+              </label>
+            </div>
+            <label style="display:grid;gap:8px">
+              <span style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#a8c6b4">Message</span>
+              <textarea ref="{{ messageRef }}" rows="5" placeholder="What's on your mind?" style="padding:15px 17px;border-radius:15px;font-size:16px;line-height:1.5;color:#fff;background:rgba(3,26,16,.42);border:1px solid rgba(255,255,255,.16);outline:none;resize:vertical" style-focus="border-color:#37bf76;background:rgba(3,26,16,.55)"></textarea>
+            </label>
+            <input ref="{{ honeypotRef }}" type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
+            <div ref="{{ turnstileRef }}" style="margin-top:4px"></div>
+            <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:14px;color:#ffb4b0">{{ error }}</div>
+            </sc-if>
+            <button type="button" onClick="{{ submitForm }}" disabled="{{ sending }}" style="margin-top:4px;padding:16px 28px;border:none;border-radius:999px;font-size:16px;font-weight:800;letter-spacing:-.01em;color:#ffffff;cursor:pointer;background:linear-gradient(160deg,#16a85e,#0a5c38);box-shadow:0 14px 30px -8px rgba(3,26,16,.5), inset 0 1px 0 rgba(255,255,255,.6);opacity:{{ sendOpacity }}" style-hover="filter:brightness(1.08)">{{ sendLabel }}</button>
+          </div>
+        </sc-if>
       </div>
     </div>
 
@@ -517,7 +545,67 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
-  state = { menuOpen: false, aboutTab: 'personal', activePillar: 0, openAccordions: {} };
+  state = { menuOpen: false, aboutTab: 'personal', activePillar: 0, openAccordions: {}, sending: false, sent: false, error: null, turnstileToken: null };
+  nameRef = React.createRef();
+  emailRef = React.createRef();
+  messageRef = React.createRef();
+  honeypotRef = React.createRef();
+  turnstileRef = React.createRef();
+  _turnstileRendered = false;
+  renderTurnstile = () => {
+    if (this._turnstileRendered) return;
+    if (window.turnstile && this.turnstileRef.current) {
+      this._turnstileRendered = true;
+      window.turnstile.render(this.turnstileRef.current, {
+        sitekey: 'YOUR_CLOUDFLARE_TURNSTILE_SITE_KEY',
+        callback: (token) => this.setState({ turnstileToken: token }),
+        'expired-callback': () => this.setState({ turnstileToken: null }),
+      });
+    } else {
+      setTimeout(this.renderTurnstile, 300);
+    }
+  };
+  componentDidMount() {
+    this.renderTurnstile();
+  }
+  submitForm = async () => {
+    if (this.honeypotRef.current && this.honeypotRef.current.value) return;
+    const name = (this.nameRef.current && this.nameRef.current.value || '').trim();
+    const email = (this.emailRef.current && this.emailRef.current.value || '').trim();
+    const message = (this.messageRef.current && this.messageRef.current.value || '').trim();
+    if (!name || !email || !message) {
+      this.setState({ error: 'Please fill out all fields.' });
+      return;
+    }
+    if (!this.state.turnstileToken) {
+      this.setState({ error: 'Please complete the verification checkbox.' });
+      return;
+    }
+    this.setState({ sending: true, error: null });
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY',
+          subject: 'New message from the Yorktown School Board site',
+          from_name: name,
+          name,
+          email,
+          message,
+          'cf-turnstile-response': this.state.turnstileToken,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        this.setState({ sending: false, sent: true });
+      } else {
+        this.setState({ sending: false, error: 'Something went wrong sending your message. Please try again.' });
+      }
+    } catch (e) {
+      this.setState({ sending: false, error: 'Something went wrong sending your message. Please try again.' });
+    }
+  };
   toggleMenu = () => this.setState((s) => {
     const next = !s.menuOpen;
     document.body.style.overflow = next ? 'hidden' : '';
@@ -649,12 +737,23 @@ class Component extends DCLogic {
     if (this._carouselCleanup) this._carouselCleanup();
   }
   renderVals() {
+    const sending = this.state.sending;
+    const sent = this.state.sent;
+    const error = this.state.error;
+    const sendLabel = sending ? 'Sending…' : 'Send message';
+    const sendOpacity = sending ? 0.7 : 1;
+    const nameRef = this.nameRef;
+    const emailRef = this.emailRef;
+    const messageRef = this.messageRef;
+    const honeypotRef = this.honeypotRef;
+    const turnstileRef = this.turnstileRef;
+    const submitForm = this.submitForm;
     const u = [
       { src: 'uploads/577054294_10239404194227265_4106296925650258213_n-521371be.jpg', alt: 'The Spry family with their golden retrievers' },
       { src: 'uploads/554085723_10238658876834796_557758260778972372_n-c45c2b6e.jpg', alt: 'Thomas and his wife at Glacier National Park' },
       { src: 'uploads/1774959444475%20(1).png', alt: 'Thomas Spry' },
       { src: 'uploads/655699414_10241650994315863_3805047959431114635_n-6c8e6f75.jpg', alt: 'The Spry family at Halloween' },
-      { src: 'uploads/656848049_10241641350834782_3836481386717458107_n-559bdf56.jpg', alt: 'Thomas with his kids on race day' },
+      { src: 'uploads/Screenshot 2026-09-21 at 10.06.41 PM.jpg', alt: 'Thomas and his son at a baseball game' },
     ];
     const slides = [];
     for (let i = 0; i < 4; i++) u.forEach((s) => slides.push(s));
@@ -680,6 +779,8 @@ class Component extends DCLogic {
     const isProfessional = this.state.aboutTab === 'professional';
     return {
       slides,
+      sending, sent, error, sendLabel, sendOpacity,
+      nameRef, emailRef, messageRef, honeypotRef, turnstileRef, submitForm,
       menuOpen: this.state.menuOpen,
       isPersonal,
       isProfessional,
