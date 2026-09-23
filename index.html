@@ -521,7 +521,7 @@ input::placeholder, textarea::placeholder { color: rgba(233,246,238,.62); }
               <textarea ref="{{ messageRef }}" rows="5" placeholder="What's on your mind?" style="padding:15px 17px;border-radius:15px;font-size:16px;line-height:1.5;color:#fff;background:rgba(3,26,16,.42);border:1px solid rgba(255,255,255,.16);outline:none;resize:vertical" style-focus="border-color:#37bf76;background:rgba(3,26,16,.55)"></textarea>
             </label>
             <input ref="{{ honeypotRef }}" type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
-            <div ref="{{ turnstileRef }}" style="margin-top:4px"></div>
+            <div ref="{{ turnstileRef }}" style="border-radius:15px;overflow:hidden"></div>
             <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
               <div style="font-size:14px;color:#ffb4b0">{{ error }}</div>
             </sc-if>
@@ -563,6 +563,9 @@ class Component extends DCLogic {
       el.dataset.rendered = '1';
       window.turnstile.render(el, {
         sitekey: '0x4AAAAAAFArFwlW5DG9TXcI',
+        theme: 'dark',
+        size: 'flexible',
+        appearance: 'interaction-only',
         callback: (token) => this.setState({ turnstileToken: token }),
         'expired-callback': () => this.setState({ turnstileToken: null }),
       });
